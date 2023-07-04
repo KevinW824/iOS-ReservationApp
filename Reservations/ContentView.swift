@@ -8,32 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var personCount: Int = 1
-    @State var inputValue:String = ""
-    
     var body: some View {
-        VStack {
-            Text("Little Lemon")
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-            Text("Reservations")
-            Stepper {
-                Text("Reservation for: \(personCount)")
-            } onIncrement: {
-                personCount += 1
-            } onDecrement: {
-                personCount = (personCount == 1) ? 1 : personCount - 1
-            }
-            TextField("Type Your Name", text: $inputValue)
-                .onChange(of: inputValue, initial: true, {print(inputValue)})
-                .onSubmit {
-                    print("submit")
+        ZStack {
+            Circle()
+                .foregroundColor(Color.gray)
+            Circle()
+                .scale(x: 0.75, y: 0.75)
+                .foregroundColor(Color.red)
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+                Text ("Hello, world!")
+                HStack {
+                    Button("One"){}
+                    Button("Two"){}
                 }
-                .padding()
+            }
+            
         }
-        .padding()
     }
 }
 
 #Preview {
-    ContentView(personCount: 1)
+    ContentView()
 }
